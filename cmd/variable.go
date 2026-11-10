@@ -46,7 +46,8 @@ func newVariableListCmd() *cobra.Command {
 			}
 
 			for i := range resp.Variables {
-				resp.Variables[i].Value = new("Value is hidden. Use Web-UI to view it")
+				v := "Value is hidden. Use Web-UI to view it"
+				resp.Variables[i].Value = &v
 			}
 
 			return ctx.Printer.Print(resp)
